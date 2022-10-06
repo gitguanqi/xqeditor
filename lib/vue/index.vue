@@ -24,7 +24,7 @@
                 </button>
                 <button class="file" title="图片">
                     <i title="图片" class="fa fa-image"></i>
-                    <input type="file" name="file" id="file" accept="image/*" @change="uploadFile">
+                    <input type="file" name="file" id="file" accept="image/*" @change="uploadImg">
                 </button>
                 <button title="代码块" @click="addEditor('code')">
                     <i title="代码块" class="fa fa-code"></i>
@@ -195,7 +195,6 @@
                 var result = md.render(val);
                 this.editor.preview = result;
                 this.calcWordAndLine(val);
-                this.$emit('getCurrentValue', val);
             },
 
             // 计算行数
@@ -214,6 +213,20 @@
                 let code = document.querySelector("#code");
                 preview.scrollTop = 0;
                 code.scrollTop = 0;
+            },
+
+            // 获取值
+            getVal () {
+                return {
+                    text: this.editor.value,
+                    html: this.editor.preview,
+                };
+            },
+
+            // 设置值
+            setVal (value) {
+                this.editor.value = value;
+                this.showPreview();
             },
 
             // 操作按钮
@@ -249,9 +262,9 @@
             },
 
             // 上传图片
-            async uploadFile(e) {
+            async uploadImg(e) {
                 let files = e.target.files;
-                this.$emit('uploadFile', files);
+                this.$emit('uploadImg', files);
             },
 
             // 显示预览/编辑

@@ -5,12 +5,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>xqeditor esm test</title>
+    <title>xqeditor browser test</title>
+    <!-- css -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/styles/default.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/css/xqeditor.min.css">
+    <style>
+
+        #myEditor{
+            margin: 0 auto;
+            width: 1200px;
+            height: 600px;
+        }
+        .myeditor-btns {
+            margin: 0 auto;
+            margin-bottom: 20px;
+            width: 1200px;
+        }
+        .myeditor-btns button {
+            padding: 5px 10px;
+            border: none;
+            outline: none;
+            background-color: rgb(8, 70, 128, .7);
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .myeditor-btns button:hover {
+            background-color: rgb(8, 70, 128, 1);
+        }
+    </style>
 </head>
 
 <body>
-    <h3>xqeditor esm test</h3>
-    <p>please wating...</p>
+    <h3>xqeditor browser test</h3>
+    <div id="myEditor">
+    </div>
+    <div class="myeditor-btns">
+        <button id="myeditor-btn-set">设置值</button>
+        <button id="myeditor-btn-get">获取值</button>
+        <button id="myeditor-btn-img">获取图片</button>
+    </div>
+    <div class="myeditor-img">
+        <img id="preview-img" src="" alt="">
+    </div>
+    <!-- js -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/markdown-it/13.0.1/markdown-it.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script src="../lib/js/xqeditor.js"></script>
+    <script type="module">
+        import xqeditor from '../lib/js/xqeditor-esm.min.js';
+        let myEditor = new XqEditor({
+            el: '#myEditor',
+        });
+        let setBtn = document.getElementById('myeditor-btn-set');
+        let getBtn = document.getElementById('myeditor-btn-get');
+        let imgBtn = document.getElementById('myeditor-btn-img');
+        let url = '';
+        
+        console.log(myEditor);
+
+        // set value
+        setBtn.addEventListener('click', setVal, false);
+        function setVal () {  
+            let val = '# hello \n\n';
+            myEditor.setVal(val);
+        }
+
+        // get value
+        getBtn.addEventListener('click', getVal, false);
+        function getVal () {
+            let result = myEditor.getVal();
+            alert('result is '+JSON.stringify(result));
+        }
+
+        // get image
+        imgBtn.addEventListener('click', getImg, false);
+        function getImg () {
+            let result = myEditor.editor.files;
+            if (!result) {
+                alert('请先上传图片！');
+                return;
+            }
+            if (url) { 
+                URL.revokeObjectURL(url);
+            } else {
+                url = URL.createObjectURL(result[0]);
+            }
+            myEditor.addEditor('image', url);
+            alert('result is '+JSON.stringify(result));
+        }
+
+    </script>
 </body>
 
 </html>
+                
