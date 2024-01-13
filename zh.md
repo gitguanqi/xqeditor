@@ -23,9 +23,9 @@
 
 ```html
 <!-- CSS -->
-<link rel="stylesheet" href="https://unpkg.com/xqeditor/lib/css/xqeditor.min.css">
+<link rel="stylesheet" href="https://xqgj.cc/xqcdn/libs/xqeditor/css/xqeditor.min.css">
 <!-- Browser -->
-<script src="https://unpkg.com/xqeditor/lib/js/xqeditor.min.js"></script>
+<script src="https://xqgj.cc/xqcdn/libs/xqeditor/js/xqeditor.min.js"></script>
 <!-- es module -->
 <script type="module">
     import xqgjs from '../lib/js/xqeditor-esm.min.js';
@@ -162,9 +162,9 @@ export default {
 
 运行这个脚本查看展示案例：`npm run test:browser`。
 
-[【在线预览】](https://unpkg.com/xqeditor/test/browser.html)
+[【在线预览】](https://xqgj.cc/xqeditor/test/browser.html)
 
-![预览图片](https://unpkg.com/xqeditor/test/img/preview.jpg)
+![预览图片](https://xqgj.cc/xqeditor/test/img/preview.jpg)
 
 ## 提问题
 

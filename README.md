@@ -23,9 +23,9 @@ This is a simplify markdown editor.
 
 ```html
 <!-- CSS -->
-<link rel="stylesheet" href="https://unpkg.com/xqeditor/lib/css/xqeditor.min.css">
+<link rel="stylesheet" href="https://xqgj.cc/xqcdn/libs/xqeditor/css/xqeditor.min.css">
 <!-- Browser -->
-<script src="https://unpkg.com/xqeditor/lib/js/xqeditor.min.js"></script>
+<script src="https://xqgj.cc/xqcdn/libs/xqeditor/js/xqeditor.min.js"></script>
 <!-- es module -->
 <script type="module">
     import xqgjs from '../lib/js/xqeditor-esm.min.js';
@@ -162,9 +162,9 @@ export default {
 
 Run this script to view the demonstration case: `npm run test:browser`.
 
-[【Demo Preview】](https://unpkg.com/xqeditor/test/browser.html)
+[【Demo Preview】](https://xqgj.cc/xqeditor/test/browser.html)
 
-![Preview Image](https://unpkg.com/xqeditor/test/img/preview.jpg)
+![Preview Image](https://xqgj.cc/xqeditor/test/img/preview.jpg)
 
 ## ask questions
 
